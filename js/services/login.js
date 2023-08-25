@@ -30,8 +30,8 @@ botao_cadastro.addEventListener("submit", async (e) =>{
 
     try{
         const result = await axios.post(urlCadastro, data);
-        // localStorage.setItem(JSON.stringify(result));
-        window.location.href = "../login.html";
+        localStorage.setItem('acess_token',JSON.stringify(result.data.access_token));
+        window.location.href = "../../MenuPrincipal.html";
     }catch(e){
         console.log(e)
         const userIsNotAuthorizedString = e.response.statusText
@@ -59,7 +59,7 @@ botao_login.addEventListener("submit", async (e) => {
     
     try{
         const result = await axios.post(urlLogin, data)
-        localStorage.setItem('token',JSON.stringify(result));
+        localStorage.setItem('acess_token',JSON.stringify(result.data.access_token));
         window.location.href = "../../MenuPrincipal.html"
     }catch(e){
         console.log(e)
