@@ -1,4 +1,4 @@
-const test = require('jwt-decode')
+
 let popup = document.getElementById("popup");
     
     let cssElement4 = document.querySelector(".container .button-container div:nth-child(4)");
@@ -20,7 +20,7 @@ let popup = document.getElementById("popup");
     
     const form = document.getElementById('form');
     
-    const url = 'http://localhost:3000/samir/getInformationFromSapienForSamirSemIdade'
+    const url = 'http://localhost:3002/samir/getInformationFromSapienForSamirSemIdade'
     const cpf = document.getElementById('CPFSapiens');
     const senha = document.getElementById('passwordSapiens')
     const etiqueta = document.getElementById('EtiquetaSapiens')
@@ -28,16 +28,11 @@ let popup = document.getElementById("popup");
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
       
-      const token = JSON.parse(localStorage.getItem('access_token'));
+     
 
-      try {
-          const decodedToken = jwtDecode(token);
-          console.log("Payload do Token:", decodedToken);
-      } catch (error) {
-          console.error("Erro ao decodificar o token:", error.message);
-      }
+      
 
-      e.preventDefault();
+
       cssElement4.classList.add("testeee");
       cssElement4.style.backgroundImage = "linear-gradient(to top, var(--color6), var(--color4))";
       cssElement3.classList.add("testeeee");
@@ -61,11 +56,11 @@ let popup = document.getElementById("popup");
                 senha: `${senhaValue}`,
             },
             etiqueta: `${etiquetaValue}`,
-            //user_id: 
+            token: localStorage.getItem('access_token'), 
         }  
-        console.log(data.login.cpf)
-        console.log(data.login.senha)
-        console.log(data.etiqueta)
+        
+
+        console.log(data.token)
         document.getElementById('triagem').innerHTML = "Triando Processos..."
         await axios.post(url, data).then( data => { document.getElementById('erro').innerHTML = "Fim da Triagem"}).catch(err => {
           const objetoErro = (err.response.data)
