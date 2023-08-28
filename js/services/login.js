@@ -73,7 +73,7 @@ botao_login.addEventListener("submit", async (e) => {
 
 
         localStorage.setItem('access_token',token);
-        
+        console.log(localStorage.getItem('access_token'))
         window.location.href = "../../MenuPrincipal.html"
 
     }catch(e){
