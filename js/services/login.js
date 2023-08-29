@@ -5,7 +5,6 @@ const email_cadastro = document.getElementById("email_cad");
 const password_cadastro = document.getElementById("senha_cad");
 const botao_cadastro = document.getElementById("cadastroForm");
 const urlCadastro = 'http://localhost:3009/auth/create/user';
-const urlVisao = "http://localhost:3000/samir/getInformationFromSapienForSamirSemIdade" 
 //items de login
 const email = document.getElementById("email_login")
 const password = document.getElementById("pwd");
